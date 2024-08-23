@@ -11,11 +11,10 @@ def index(request) :
     template = loader.get_template('index.html')
     return HttpResponse(template.render())
 
-
-def aboutus(request):
+def aboutus(req):
      template = loader.get_template('aboutus.html')
      return HttpResponse(template.render())
 
-def contactus(request):
+def contactus(reque):
     template = loader.get_template('contactus.html')
     return HttpResponse(template.render())

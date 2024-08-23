@@ -17,12 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from mysite import views
+from member import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('aboutus', views.aboutus, name="aboutus"),
-    path('contactus', views.contactus, name="contactus"),
+    path('member', views.member, name="member"),
+    path('add', views.add, name="add"),
+    # path('aboutus', views.aboutus, name="aboutus"),
+    # path('contactus', views.contactus, name="contactus"),
     path('admin/', admin.site.urls),
 ]
 
