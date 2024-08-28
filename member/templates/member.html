@@ -11,21 +11,29 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <style>
+            h1{
+                color: red;
+            }
+        </style>
     </head>
     <body bgcolor='aqua'>
+       <h1>Add Two Number</h1>
+       {% block content  %}
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        
+        
+        <form name='addForm' action="add" method="post"> 
+        {% csrf_token %}          
 
-        <h1>Add Two Number</h1>
-        <form name='addForm' action="add">
         <input type='text' name='num1' placeholder='num1'> </br></br>
         <input type='text' name='num2' placeholder='num2'> </br></br>
-
         <button type='submit'>Result</button>
 
         </form>
-        
-        <script src="" async defer></script>
+        {% endblock content  %}
+        <script src="gvvjkjklj" async defer></script>
     </body>
 </html>

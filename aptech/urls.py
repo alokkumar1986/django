@@ -20,6 +20,7 @@ from django.urls import path
 from member import views
 
 urlpatterns = [
+    # path('index', views.index, name="index"),
     path('', views.index, name="index"),
     path('member', views.member, name="member"),
     path('add', views.add, name="add"),

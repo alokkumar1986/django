@@ -9,12 +9,12 @@ from django.template import loader
 
 def index(request) :
     template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({"title": "Home"}))
 
 def aboutus(req):
      template = loader.get_template('aboutus.html')
-     return HttpResponse(template.render())
+     return HttpResponse(template.render({"title": "Aboutus"}))
 
 def contactus(reque):
     template = loader.get_template('contactus.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({"title": "Contactus"}))
