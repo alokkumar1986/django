@@ -4,6 +4,34 @@
        <h1>Contact Us Page</h1>
 
             <p>Hello world, You are at Contact Us page. </p>
+            
+          <table width="100%" border="1">
+               <tr>
+                    <th> ID </th>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Mobile </th>
+               </tr>
+            {% for i in context %}
+               <tr>
+                <td> {{i.id}} </td>
+                <td> {{i.name}} </td>
+                <td> {{i.email}} </td>
+                <td> {{i.mobile}} </td>
+               </tr>
+            {% endfor %}
+          </table>
+
+          <h1> Add Contact </h1>
+            <form action="savecontact" method="post">
+               {% csrf_token %}
+               <input type='number' name="id" placeholder="Enter ID"  value=""> <br> <br>
+               <input type='text' name="name" placeholder="Enter Name"  value=""> <br> <br>
+               <input type='email' name="email" placeholder="Enter Email"  value=""> <br> <br>
+               <input type='number' name="mobile" placeholder="Enter Mobile No."  value=""> <br> <br>
+
+               <button type="submit" name="submit">Save</button>
+            </form>
        {% endblock content %}
         
     
