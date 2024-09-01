@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block content  %}
+<h1>Contact Us Page</h1>
+
+     <p>Hello world, You are at Contact Us page. </p>
+     
+   {% comment %} <table width="100%" border="1">
+        <tr>
+             <th> ID </th>
+             <th> Name </th>
+             <th> Email </th>
+             <th> Mobile </th>
+             <th> Action </th>
+        </tr>
+     {% for i in context %}
+        <tr>
+         <td> {{i.id}} </td>
+         <td> {{i.name}} </td>
+         <td> {{i.email}} </td>
+         <td> {{i.mobile}} </td>
+         <td> <a href="details/{{i.id}}">Edit</a>  | <a href="#"> Delete </a></td>
+        </tr>
+     {% endfor %}
+   </table> {% endcomment %}
+
+   <h1> Update Contact </h1>
+     <form action="/updatecontact" method="post">
+        {% csrf_token %}
+        <input type='number' name="id" placeholder="Enter ID"  value="{{context.id}}"> <br> <br>
+        <input type='text' name="name" placeholder="Enter Name"  value="{{context.name}}"> <br> <br>
+        <input type='email' name="email" placeholder="Enter Email"  value="{{context.email}}"> <br> <br>
+        <input type='number' name="mobile" placeholder="Enter Mobile No."  value="{{context.mobile}}"> <br> <br>
+
+        <button type="submit" name="submit">Save</button>
+     </form>
+{% endblock content %}
+ 

@@ -25,6 +25,18 @@ def contactus(request):
     context = {"context": contact}
     return render(request, 'contactus.html', context)
 
+def details(request, id):
+    # template = loader.get_template('contactus.html')
+    contact = Contact.objects.get(id=id)
+    context = {"context": contact}
+    return render(request, 'details.html', context)
+
+def delete(request, id):
+    # template = loader.get_template('contactus.html')
+    contact = Contact.objects.get(id=id)   
+    contact.delete()
+    return redirect('contactus')
+
 @csrf_protect
 def savecontact(request):
     id = int(request.POST['id'])
@@ -34,3 +46,17 @@ def savecontact(request):
     contact = Contact(id, name, email,  mobile)
     contact.save()
     return redirect('contactus')
+
+@csrf_protect
+def updatecontact(request):
+    id = int(request.POST['id'])
+    name = request.POST['name']
+    email = request.POST['email']
+    mobile = request.POST['mobile']
+    contact = Contact.objects.get(id=id)
+    contact.name = name
+    contact.email = email
+    contact.mobile = mobile
+    contact.save()
+    return redirect('contactus')
+    
