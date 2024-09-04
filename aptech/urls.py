@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path
 
 # from member import views
-from mysite import views
+# from mysite import views
+from demo import views
 
 urlpatterns = [
     path('index', views.index, name="index"),
@@ -26,13 +27,13 @@ urlpatterns = [
     # path('member', views.member, name="member"),
     # path('add', views.add, name="add"),
     path('aboutus', views.aboutus, name="aboutus"),
-    path('contactus', views.contactus, name="contactus"),
+    # path('contactus', views.contactus, name="contactus"),
     
-    path('details/<int:id>', views.details, name="details"),
-    path('delete/<int:id>', views.delete, name="delete"),
+    # path('details/<int:id>', views.details, name="details"),
+    # path('delete/<int:id>', views.delete, name="delete"),
     
-    path('savecontact', views.savecontact, name="savecontact"),
-    path('updatecontact', views.updatecontact, name="updatecontact"),
+    # path('savecontact', views.savecontact, name="savecontact"),
+    # path('updatecontact', views.updatecontact, name="updatecontact"),
     
     path('admin/', admin.site.urls),
 ]
