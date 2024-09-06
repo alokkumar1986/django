@@ -19,14 +19,16 @@ from django.urls import path
 
 # from member import views
 # from mysite import views
-from demo import views
+# from demo import views
+
+from login import views
 
 urlpatterns = [
     path('index', views.index, name="index"),
     path('', views.index, name="index"),
     # path('member', views.member, name="member"),
     # path('add', views.add, name="add"),
-    path('aboutus', views.aboutus, name="aboutus"),
+    # path('aboutus', views.aboutus, name="aboutus"),
     # path('contactus', views.contactus, name="contactus"),
     
     # path('details/<int:id>', views.details, name="details"),

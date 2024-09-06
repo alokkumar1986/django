@@ -32,7 +32,7 @@ def index(request):
     context = {
         "data": data
     }
-    return render(request, 'main.html', context)
+    return render(request, 'index.html', context)
     
     
 def aboutus(request):
