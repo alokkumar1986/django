@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'allauth',	#	<	here
     'allauth.account',	#	<	here
     'allauth.socialaccount',	#	<	here
+    'onetoone.apps.OnetooneConfig',
     'login.apps.LoginConfig',
     'demo.apps.DemoConfig',
     'mysite.apps.MysiteConfig',
