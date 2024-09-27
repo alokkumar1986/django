@@ -26,10 +26,12 @@
         
         
         <form name='addForm' action="add" method="post"> 
-        {% csrf_token %}          
-
-        <input type='text' name='num1' placeholder='num1'> </br></br>
-        <input type='text' name='num2' placeholder='num2'> </br></br>
+        {% csrf_token %}  
+        {% if error %}        
+        <p>{{ error }}</p>
+        {% endif %}
+        <input type='text' name='num1' placeholder='num1' value="{{values.num1}}"> </br></br>
+        <input type='text' name='num2' placeholder='num2' value="{{values.num2}}"> </br></br>
         <button type='submit'>Result</button>
 
         </form>

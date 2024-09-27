@@ -21,9 +21,43 @@ def member(request):
     return render(request, 'member.html')
 
 @csrf_protect
-def add(request):
-    num1 = int(request.POST['num1'])
-    num2 = int(request.POST['num2'])
+def add(request): 
+    values = { 'num1' : request.POST['num1'], 
+               'num2' : request.POST['num2']
+             }  
+    try :
+       num1 = int(request.POST['num1'])
+    except :
+        if not request.POST['num1'] :
+            context = { 'error': 'num1 cannot be blank',
+                    'values' : values  }        
+            return render(request, 'member.html', context)
+        context = { 'error': 'num1 cannot be a string.',
+                    'values' : values  } 
+        return render(request, 'member.html', context)
+    else :          
+        if len(request.POST['num1']) > 2 :
+            context = { 'error': 'num1 cannot be more than 99.',
+                    'values' : values  } 
+            return render(request, 'member.html', context)
+        
+    try :
+       num2 = int(request.POST['num2'])
+    except :
+        if not request.POST['num2'] :
+            context = { 'error': 'num2 cannot be blank',
+                    'values' : values } 
+            return render(request, 'member.html', context ) 
+        context = { 'error': 'num2 cannot be a string.',
+                    'values' : values  } 
+        return render(request, 'member.html', context)
+    else :    
+       
+        if len(request.POST['num2']) > 2 :
+            context = { 'error': 'num2 cannot be more than 99.',
+                    'values' : values  } 
+            return render(request, 'member.html', context)   
+   
     result = num1+num2
     context = {
         'result' : result

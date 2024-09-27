@@ -15,6 +15,27 @@ def doLogin(request):
     username = request.POST['username']
     password = request.POST['password']
     
+    if not username :
+       context = {
+            'usernamemessage' : "Username canot be blank.",
+            'passmessage' : "",
+            'values' : {
+                'username': username,
+                'password' : password
+            } 
+           }
+       return render(request, 'index.html', context)  
+    if not password :
+       context = {
+            'usernamemessage' : "",
+            'passmessage' : "Password canot be blank." ,
+            'values' : {
+                'username': username,
+                'password' : password
+            }
+           }
+       return render(request, 'index.html', context)  
+    
     if User.objects.filter(username=username).exists():
         user = authenticate(username=username, password=password)
         if user is None:
