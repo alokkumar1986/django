@@ -1,0 +1,57 @@
+Monolitic Architechture
+Distributed Architechture
+Rest Representational State Transfer
+Soap Simple Object access protocol
+API Application Programing Interface
+JSON JavaScript Object Notation
+XML Xtensible Markup Language
+HTML Hypertext transfer protocol
+
+Rest Api development :
+
+1) Django Rest Framework 
+2) Postman / Thunder client in vscode
+
+1) REST framework requires the following:
+=======================================
+
+Django (4.2, 5.0)
+Python (3.8, 3.9, 3.10, 3.11, 3.12)
+
+2)Installation
+==============
+Install using pip, including any optional packages you want...
+
+pip install djangorestframework
+
+3) Create a project and an app
+django-admin startproject restapi
+djnago-admin startapp api
+
+4) Add 'rest_framework' to your INSTALLED_APPS setting.
+
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+]
+
+5) urlpatterns = [
+    path('api', include("api.urls")),
+ ]
+6) Creating urls.py inside api folder
+from django.contrib import admin
+from django.urls import path, include
+
+from api.views import home
+
+
+urlpatterns = [
+    path('', home),    
+]
+
+7) Adding following in views.py
+@api_view()
+def home(request):
+    return Response({"message": "Hello, world!"})
+8) py manage.py migrate
+9) py manage.py runserver
